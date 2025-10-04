@@ -55,7 +55,7 @@ export function Topbar() {
             aria-label="Make a Job Offer"
             style={{ backgroundColor: "#0F4C75" }}
           >
-            <span className="inline-flex items-center justify-center rounded-full bg-white/15 p-1">
+            <span className="inline-flex items-center justify-center rounded-full p-1">
               <Image
                 src="/images/job_offer_icon.png"
                 alt="Job Offer"
