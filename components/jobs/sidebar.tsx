@@ -16,7 +16,7 @@ function NavLink({ children, active = false }: { children: React.ReactNode; acti
   )
 }
 
-export function Sidebar() {
+export function Sidebar({ activeCategory }: { activeCategory?: string }) {
   return (
 <aside className="hidden lg:flex fixed top-0 left-0 h-screen w-75 flex-col justify-between text-brand-foreground shadow-md p-4 z-20" style={{backgroundColor: "rgba(15, 76, 117, 1)"}}>
       <div>
@@ -34,14 +34,14 @@ export function Sidebar() {
           <div className=" pl-6 -mt-2">
             <div className="text-xl tracking-tight text-white mb-2 pl-3 font-semibold">Category</div>
             <div className="-space-y-1">
-              <NavLink active>Public Services &amp; Security</NavLink>
-              <NavLink>Manufacturing &amp; Production</NavLink>
-              <NavLink>Construction &amp; Engineering</NavLink>
-              <NavLink>Housework &amp; Care</NavLink>
-              <NavLink>Administration &amp; Office</NavLink>
-              <NavLink>IT &amp; Software</NavLink>
-              <NavLink>Health &amp; Medical</NavLink>
-              <NavLink>Education &amp; Training</NavLink>
+              <NavLink active={activeCategory === "public-service-security"}>Public Services &amp; Security</NavLink>
+              <NavLink active={activeCategory === "manufacturing-production"}>Manufacturing &amp; Production</NavLink>
+              <NavLink active={activeCategory === "construction-engineering"}>Construction &amp; Engineering</NavLink>
+              <NavLink active={activeCategory === "housework-care"}>Housework &amp; Care</NavLink>
+              <NavLink active={activeCategory === "administration-office"}>Administration &amp; Office</NavLink>
+              <NavLink active={activeCategory === "it-software"}>IT &amp; Software</NavLink>
+              <NavLink active={activeCategory === "health-medical"}>Health &amp; Medical</NavLink>
+              <NavLink active={activeCategory === "education-training"}>Education &amp; Training</NavLink>
             </div>
           </div>
           <div className="px-2 text-xl">
