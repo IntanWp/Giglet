@@ -8,6 +8,8 @@ export function LoginForm() {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.currentTarget).entries())
     console.log("[v0] Login form submitted:", data)
+    // Navigate to profile page after successful login
+    window.location.href = "/profile"
   }
 
   const inputClass =
