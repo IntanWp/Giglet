@@ -107,10 +107,10 @@ export default function JobInProgressPage() {
                 <div className="rounded-xl border border-black bg-white p-4 text-center shadow-sm">
                   <div className="text-xl font-medium text-foreground/70">Enter Pass Code</div>
                   <input
-    type="text"
-    maxLength={6}
-    className="mt-3 w-24 mx-auto text-center text-2xl font-bold border-0 border-b-2 border-gray-400 bg-transparent focus:border-brand focus:outline-none"
-  />
+                        type="text"
+                        maxLength={6}
+                        className="mt-3 w-24 mx-auto text-center text-2xl font-bold border-0 border-b-2 border-gray-400 bg-transparent focus:border-brand focus:outline-none"
+                    />
                 </div>
 
                 <Button className="text-lg font-bold rounded-lg bg-brand text-brand-foreground hover:opacity-95">Done</Button>
