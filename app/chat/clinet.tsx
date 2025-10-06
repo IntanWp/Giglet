@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { FaArrowLeft, FaUser, FaPaperPlane, FaSearch, FaPlus } from "react-icons/fa"
+import { FaUser, FaPaperPlane } from "react-icons/fa"
 import { Sidebar } from "@/components/jobs/sidebar"
 import { Topbar } from "@/components/jobs/topbar"
 import { MobileSidebar } from "@/components/jobs/sidebar"
@@ -48,7 +48,7 @@ const ChatPage: React.FC = () => {
       <main className="min-h-screen w-full pl-64 pt-16 bg-background">
         <Topbar />
         <div className="mx-auto w-full px-6 md:px-10 py-4 md:py-6 flex gap-4 md:gap-8">
-          <Sidebar activeCategory="public-service-security"/>
+          <Sidebar />
           <div className="flex-1">
             <MobileSidebar />
             <section className="ml-10 mt-3 md:mt-0">

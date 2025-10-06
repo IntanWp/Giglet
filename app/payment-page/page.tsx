@@ -41,13 +41,13 @@ export default function PayPage() {
       <main className="min-h-screen w-full pl-64 pt-16 bg-background">
         <Topbar />
         <div className="mx-auto w-full px-6 md:px-10 py-4 md:py-6 flex gap-4 md:gap-8">
-          <Sidebar activeCategory="public-service-security"/>
+          <Sidebar />
           <div className="flex-1">
             <MobileSidebar />
             <section className="ml-10 mt-3 md:mt-0">
               <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
                 <ArrowLeft className="h-7 w-7 md:h-9 md:w-9 text-foreground/80" />
-                <h1 onClick={handleChatClick} className="text-xl md:text-2xl lg:text-3xl font-extrabold">Chat with Worker</h1>
+                <h1 onClick={handleChatClick} className="text-xl md:text-2xl lg:text-3xl font-extrabold">Receive</h1>
               </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
