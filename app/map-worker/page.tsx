@@ -1,7 +1,10 @@
+"use client"
+
 import type React from "react"
 import { Sidebar, MobileSidebar } from "@/components/jobs/sidebar"
 import { Topbar } from "@/components/jobs/topbar"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 function ArrowLeft(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -25,7 +28,9 @@ export default function JobInProgressPage() {
 
   const mapsUrl = `https://www.google.com/maps?q=${job.coords.lat},${job.coords.lng}&z=14`
 
+const router = useRouter();
   return (
+    
     <main className="min-h-screen w-full pl-64 pt-16 bg-background">
       <Topbar />
       <div className="mx-auto w-full px-6 md:px-10 py-4 md:py-6 flex gap-4 md:gap-8">
@@ -109,7 +114,8 @@ export default function JobInProgressPage() {
                   <div className="mt-2 text-3xl font-extrabold text-red-600">88</div>
                 </div>
 
-                <Button className="text-lg font-bold rounded-lg bg-brand text-brand-foreground hover:opacity-95">Done</Button>
+                <Button className="text-lg font-bold rounded-lg bg-brand text-brand-foreground hover:opacity-95"
+                onClick={() => router.push('/payment-page')}>Done</Button>
               </div>
             </div>
           </section>

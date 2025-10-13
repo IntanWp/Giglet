@@ -21,7 +21,8 @@ export default function Page() {
                 </div>
 
         {/* Right panel */}
-        <div className="order-1 lg:order-2 bg-brand text-brand-foreground rounded-none lg:rounded-s-3xl px-6 py-10 md:px-10 md:py-14 flex items-center justify-center overflow-y-auto">
+        <div className="order-1 lg:order-2 text-brand-foreground rounded-none lg:rounded-s-3xl px-6 py-10 md:px-10 md:py-14 flex items-center justify-center overflow-y-auto"
+        style={{ backgroundColor: "#3282B8" }}>
           <div className="w-full max-w-3xl">
             <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-8">Login</h2>
             <LoginForm />

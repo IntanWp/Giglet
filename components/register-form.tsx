@@ -3,12 +3,16 @@
 import type * as React from "react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export function RegisterForm() {
+  const router = useRouter()
+
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.currentTarget).entries())
-    console.log("[v0] Register form submitted:", data)
+    console.log("Register form submitted:", data)
+    router.push("/")
   }
 
   const inputClass =

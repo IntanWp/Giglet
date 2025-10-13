@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 // Mock data
 const jobDetails = {
@@ -34,6 +36,7 @@ const jobDetails = {
 };
 
 export default function JobDetailPage() {
+  const router = useRouter();
   return (
     // FIX 1: Changed padding to `lg:pl-75` to match your sidebar's width
     <main className="min-h-screen w-full lg:pl-75 pt-16 bg-background">
@@ -127,7 +130,8 @@ export default function JobDetailPage() {
                     <span className="text-lg font-bold">Fee</span>
                     <span className="text-xl font-bold">{jobDetails.fee}</span>
                   </div>
-                  <Button className="w-full text-lg font-bold" style={{ backgroundColor: "#1F7A8C", color: "white" }}>
+                  <Button className="w-full text-lg font-bold" style={{ backgroundColor: "#1F7A8C", color: "white" }}
+                  onClick={() => router.push('/chat')}>
                     Request Job
                   </Button>
                 </div>

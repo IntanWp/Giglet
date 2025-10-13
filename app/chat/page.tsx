@@ -16,9 +16,9 @@ interface Message {
 }
 
 const ChatPage: React.FC = () => {
-  const goToPayPage = () => {
+  const goNextPage = () => {
     // Navigate to pay page
-    window.location.href = "/payment-page"
+    window.location.href = "/map-worker";
   }
 
   // Type the state variables
@@ -54,7 +54,7 @@ const ChatPage: React.FC = () => {
             <section className="ml-10 mt-3 md:mt-0">
               <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
                 <ArrowLeft className="h-7 w-7 md:h-9 md:w-9 text-foreground/80" />
-                <h1 onClick={goToPayPage} className="text-xl md:text-2xl lg:text-3xl font-extrabold">Chat with Job Bidders</h1>
+                <h1 onClick={goNextPage} className="text-xl md:text-2xl lg:text-3xl font-extrabold">Chat with Job Bidders</h1>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -120,7 +120,7 @@ const ChatPage: React.FC = () => {
                   </div>
                   <span>Ronald Timothy</span>
                 </div>
-                <button onClick={goToPayPage} className="confirm-btn">
+                <button onClick={goNextPage} className="confirm-btn">
                   Confirm
                 </button>
               </div>

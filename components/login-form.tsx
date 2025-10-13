@@ -2,14 +2,16 @@
 
 import type * as React from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export function LoginForm() {
+  const router = useRouter()
+
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.currentTarget).entries())
-    console.log("[v0] Login form submitted:", data)
-    // Navigate to profile page after successful login
-    window.location.href = "/profile"
+    console.log("Login form submitted:", data)
+    router.push("/")
   }
 
   const inputClass =

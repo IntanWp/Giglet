@@ -2,6 +2,7 @@ import type React from "react"
 import { Sidebar, MobileSidebar } from "@/components/jobs/sidebar"
 import { Topbar } from "@/components/jobs/topbar"
 import { JobCard } from "@/components/job-card"
+import Link from "next/link"
 
 function ArrowLeft(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -130,10 +131,12 @@ export default function JobsPage() {
         <div className="flex-1">
           <MobileSidebar />
           <section className="ml-10 mt-3 md:mt-0">
-            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+            <Link
+            href="/"
+            className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6 hover:opacity-90 transition">
               <ArrowLeft className="h-7 w-7 md:h-9 md:w-9 text-foreground/80" />
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold">Public Service &amp; Security Jobs</h1>
-            </div>
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold group-hover:underline">Public Service &amp; Security</h1>
+            </Link>
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
               {jobs.map((j, i) => (

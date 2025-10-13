@@ -13,10 +13,13 @@ import { ArrowLeft, Calendar as CalendarIcon, ClockIcon, UploadCloudIcon } from 
 import Link from "next/link";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function JobOfferPage() {
-  // State to hold the selected date. This is crucial for the calendar to work.
   const [date, setDate] = useState<Date | undefined>();
+  const [datepickerOpen, setDatepickerOpen] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,17 +28,17 @@ export default function JobOfferPage() {
       return;
     }
     alert(`Job offer posted for: ${format(date, "PPP")}`);
+    router.push("/");
   };
 
   return (
-    // FIX: The layout is now structured correctly with Topbar and Sidebar as siblings to main.
     <div>
       <Topbar />
       <div className="mx-auto w-full px-4 md:px-8 py-4 md:py-6 flex gap-4 md:gap-8"></div>
       <Sidebar />
       <main className="min-h-screen w-full lg:pl-75 pt-16 bg-background">
         <div className="mx-auto w-full px-4 md:px-8 py-4 md:py-6">
-            <div className="flex-1 min-w-0"></div>
+          <div className="flex-1 min-w-0"></div>
 
           <MobileSidebar />
           <section className="mt-3 md:mt-0">
@@ -47,20 +50,18 @@ export default function JobOfferPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              {/* Left Column: Image Upload */}
               <div className="flex flex-col items-center justify-center h-full w-full bg-secondary rounded-xl border-2 border-dashed border-border p-8 text-center">
-                 <UploadCloudIcon className="w-16 h-16 text-muted-foreground mb-4" />
-                 <h3 className="text-xl font-bold text-foreground">Upload Image</h3>
-                 <p className="text-sm text-muted-foreground mt-1">Drag and drop or click to upload</p>
-                 <Input type="file" className="sr-only" id="image-upload" required/>
-                 <label htmlFor="image-upload" className="mt-4 cursor-pointer">
-                    <Button asChild>
-                        <span>Choose File</span>
-                    </Button>
-                 </label>
+                <UploadCloudIcon className="w-16 h-16 text-muted-foreground mb-4" />
+                <h3 className="text-xl font-bold text-foreground">Upload Image</h3>
+                <p className="text-sm text-muted-foreground mt-1">Drag and drop or click to upload</p>
+                <Input type="file" className="sr-only" id="image-upload" required />
+                <label htmlFor="image-upload" className="mt-4 cursor-pointer">
+                  <Button asChild>
+                    <span>Choose File</span>
+                  </Button>
+                </label>
               </div>
 
-              {/* Right Column: Form Fields */}
               <div className="space-y-4">
                 <div className="grid gap-2">
                   <label htmlFor="job-title" className="font-bold">Job Title</label>
@@ -93,7 +94,7 @@ export default function JobOfferPage() {
 
                 <div className="grid gap-2">
                   <label htmlFor="location" className="font-bold">Location</label>
-                   <Select required>
+                  <Select required>
                     <SelectTrigger id="location">
                       <SelectValue placeholder="Select your city" />
                     </SelectTrigger>
@@ -105,38 +106,48 @@ export default function JobOfferPage() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* --- FULLY FUNCTIONAL DATE PICKER --- */}
                   <div className="grid gap-2">
                     <label className="font-bold">Date</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant={"outline"}
-                          className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !date && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon className="mr-2 h-4 w-4" />
-                          {date ? format(date, "PPP") : <span>Pick a date</span>}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0">
-                        <Calendar
-                          mode="single"
-                          selected={date}
-                          onSelect={setDate} // This now works correctly due to the layout fix
-                          initialFocus
-                        />
-                      </PopoverContent>
-                    </Popover>
+                    <Popover open={datepickerOpen} onOpenChange={setDatepickerOpen}>
+    <PopoverTrigger asChild>
+      <Button
+        variant={"outline"}
+        className={cn(
+          "w-full justify-start text-left font-normal",
+          !date && "text-muted-foreground"
+        )}
+        onClick={() => setDatepickerOpen(true)}
+      >
+        <CalendarIcon className="mr-2 h-4 w-4" />
+        {date ? format(date, "PPP") : <span>Pick a date</span>}
+      </Button>
+    </PopoverTrigger>
+
+    <PopoverContent className="w-auto p-0">
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={(d) => {
+          if (!d) {
+            setDate(undefined);
+            return;
+          }
+          const newDate = Array.isArray(d)
+            ? (d[0] as Date | undefined)
+            : (d as Date | undefined);
+          setDate(newDate);
+          setDatepickerOpen(false); // close popover after selection
+        }}
+        initialFocus
+      />
+    </PopoverContent>
+  </Popover>
                   </div>
-                  
-                  {/* --- NATIVE TIME INPUT --- */}
+
                   <div className="grid gap-2">
                     <label htmlFor="time" className="font-bold">Time</label>
-                     <div className="relative flex items-center">
-                        <Input id="time" type="time" required />
+                    <div className="relative flex items-center">
+                      <Input id="time" type="time" required />
                     </div>
                   </div>
                 </div>

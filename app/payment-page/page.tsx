@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/jobs/sidebar"
 import { Topbar } from "@/components/jobs/topbar"
 import { MobileSidebar } from "@/components/jobs/sidebar"
 import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type PaymentMethod = {
   id: string
@@ -36,6 +37,7 @@ export default function PayPage() {
       window.location.href = "/chat";
     };
 
+    const router = useRouter();
   return (
     <div>
       <main className="min-h-screen w-full pl-64 pt-16 bg-background">
@@ -181,7 +183,7 @@ export default function PayPage() {
               <div className="fee-label">Fee</div>
               <div className="fee-amount">3000</div>
             </div>
-            <button className="pay-btn" onClick={handlePay}>
+            <button className="pay-btn" onClick={() => router.push('/payment-success-client')}>
               Pay
             </button>
           </section>

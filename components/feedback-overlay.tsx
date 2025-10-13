@@ -1,19 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 type FeedbackFormProps = {
   role?: "worker" | "client" // determines the perspective
 }
 
 export default function FeedbackForm({ role = "worker" }: FeedbackFormProps) {
+  const router = useRouter();
+
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(0)
   const [feedback, setFeedback] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    alert(`Thanks for your feedback!\nRating: ${rating}\nMessage: ${feedback}`)
+    e.preventDefault();
+     router.push("/");
   }
 
   // Dynamic text based on role
