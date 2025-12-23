@@ -60,7 +60,7 @@ export default function PayPage() {
               <img
                 className="job-hero"
                 // MODIFIED: Using a placeholder image
-                src="https://via.placeholder.com/600x400.png?text=Job+Image"
+                src="/images/washing-clothes.png"
                 alt="Laundry machine with clothes being washed"
               />
               <div className="job-header">
@@ -71,7 +71,7 @@ export default function PayPage() {
                   </span>
                 </div>
                 <div className="job-owner-row">
-                  <span className="muted">Job Offer Owner</span>
+                  <span className="!text-black font-bold">Job Offer Owner</span>
                   <span className="owner-name">Ronald Timothy</span>
                 </div>
               </div>
@@ -87,19 +87,19 @@ export default function PayPage() {
 
               <dl className="details">
                 <div className="detail-row">
-                  <dt>Date</dt>
+                  <dt className="!text-black font-bold">Date</dt>
                   <dd>01/01/1999</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Time</dt>
+                  <dt className="!text-black font-bold">Time</dt>
                   <dd>10.00 - 12.00</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Location</dt>
+                  <dt className="!text-black font-bold">Location</dt>
                   <dd>66818 McGlynn Ramp, Apt. 089, 32994-9987, Lake Melbamount, Minnesota, United States</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Fee</dt>
+                  <dt className="!text-black font-bold">Fee</dt>
                   <dd>3000</dd>
                 </div>
               </dl>
@@ -108,13 +108,13 @@ export default function PayPage() {
 
           {/* Right: Pay to Workers */}
           <section className="right-col">
-            <h2 className="section-title">Pay to Workers</h2>
+            <h2 className="section-title">Receive Payment</h2>
 
             <div className="worker-card">
               <img 
                 className="worker-avatar" 
                 // MODIFIED: Using a placeholder image
-                src="https://via.placeholder.com/150.png?text=Avatar" 
+                src="/images/tucker.png" 
                 alt="Worker avatar" 
               />
               <div className="worker-meta">
@@ -149,13 +149,13 @@ export default function PayPage() {
             <textarea
               id="comment"
               className="comment"
-              placeholder="Provide comments, criticism and suggestions for workers"
+              placeholder="Provide comments, criticism and suggestions for job provider"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={5}
             />
 
-            {/* Payment method */}
+            {/* Payment method
             <div className="pm-header">
               <h3 className="pm-title">Payment Method</h3>
               <button className="icon-btn" aria-label="Add payment method">
@@ -176,15 +176,15 @@ export default function PayPage() {
                   />
                 </li>
               ))}
-            </ul>
+            </ul> */}
 
             {/* Fee + Pay */}
             <div className="fee-row">
               <div className="fee-label">Fee</div>
               <div className="fee-amount">3000</div>
             </div>
-            <button className="pay-btn" onClick={() => router.push('/payment-success-client')}>
-              Pay
+            <button className="pay-btn !bg-[#0BA6DF] text-xl" onClick={() => router.push('/payment-success-worker')}>
+              Receive
             </button>
           </section>
               </div>

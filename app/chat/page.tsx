@@ -65,7 +65,7 @@ const ChatPage: React.FC = () => {
               <img
                 className="job-hero"
                 // MODIFIED: Using a placeholder image
-                src="https://via.placeholder.com/600x400.png?text=Job+Image"
+                src="/images/washing-clothes.png"
                 alt="Laundry machine with clothes being washed"
               />
               <div className="job-header">
@@ -76,13 +76,13 @@ const ChatPage: React.FC = () => {
                   </span>
                 </div>
                 <div className="job-owner-row">
-                  <span className="muted">Job Offer Owner</span>
+                  <span className="text-black font-bold">Job Offer Owner</span>
                   <span className="owner-name">Ronald Timothy</span>
                 </div>
               </div>
 
               <div className="job-desc">
-                <h4 className="desc-title">Job Description</h4>
+                <h4 className="desc-title text-black">Job Description</h4>
                 <p className="desc-text">
                   Assisting with washing clothes using a washing machine or by hand, hanging clothes to dry, and folding
                   simple items to keep them neat and clean. Suitable for families who need help with daily household
@@ -91,20 +91,20 @@ const ChatPage: React.FC = () => {
               </div>
 
               <dl className="details">
-                <div className="detail-row">
-                  <dt>Date</dt>
+                <div className="detail-row text-black">
+                  <dt className="!text-black font-bold">Date</dt>
                   <dd>01/01/1999</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Time</dt>
+                  <dt className="!text-black font-bold">Time</dt>
                   <dd>10.00 - 12.00</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Location</dt>
+                  <dt className="!text-black font-bold">Location</dt>
                   <dd>66818 McGlynn Ramp, Apt. 089, 32994-9987, Lake Melbamount, Minnesota, United States</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Fee</dt>
+                  <dt className="!text-black font-bold">Fee</dt>
                   <dd>3000</dd>
                 </div>
               </dl>

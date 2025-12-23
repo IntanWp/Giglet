@@ -58,7 +58,7 @@ export default function PayPage() {
               <img
                 className="job-hero"
                 // MODIFIED: Using a placeholder image
-                src="https://via.placeholder.com/600x400.png?text=Job+Image"
+                src="/images/washing-clothes.png"
                 alt="Laundry machine with clothes being washed"
               />
               <div className="job-header">
@@ -69,7 +69,7 @@ export default function PayPage() {
                   </span>
                 </div>
                 <div className="job-owner-row">
-                  <span className="muted">Job Offer Owner</span>
+                  <span className="!text-black font-bold">Job Offer Owner</span>
                   <span className="owner-name">Ronald Timothy</span>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function PayPage() {
 
               <dl className="details">
                 <div className="detail-row">
-                  <dt>Date</dt>
+                  <dt className="!text-black font-bold">Date</dt>
                   <dd>01/01/1999</dd>
                 </div>
                 <div className="detail-row">
@@ -93,11 +93,11 @@ export default function PayPage() {
                   <dd>10.00 - 12.00</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Location</dt>
+                  <dt className="!text-black font-bold">Location</dt>
                   <dd>66818 McGlynn Ramp, Apt. 089, 32994-9987, Lake Melbamount, Minnesota, United States</dd>
                 </div>
                 <div className="detail-row">
-                  <dt>Fee</dt>
+                  <dt className="!text-black font-bold">Fee</dt>
                   <dd>3000</dd>
                 </div>
               </dl>
@@ -112,7 +112,7 @@ export default function PayPage() {
               <img 
                 className="worker-avatar" 
                 // MODIFIED: Using a placeholder image
-                src="https://via.placeholder.com/150.png?text=Avatar" 
+                src="/images/tucker.png" 
                 alt="Worker avatar" 
               />
               <div className="worker-meta">

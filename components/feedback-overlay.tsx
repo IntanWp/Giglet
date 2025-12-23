@@ -41,26 +41,18 @@ export default function FeedbackForm({ role = "worker" }: FeedbackFormProps) {
       <div className="flex items-center justify-between px-4 py-2 mb-5 border-2 border-[#0BA6DF] rounded-md">
         <label className="text-lg font-bold">Rate</label>
         <div className="flex items-center gap-1">
-          {[1, 2, 3, 4, 5].map((n) => {
-            const active = (hover || rating) >= n
-            return (
-              <button
-                key={n}
-                type="button"
-                aria-label={`${n} star${n > 1 ? "s" : ""}`}
-                onMouseEnter={() => setHover(n)}
-                onMouseLeave={() => setHover(0)}
-                onClick={() => setRating(n)}
-                className="text-2xl transition-transform duration-150 hover:scale-110"
-                style={{
-                  color: active ? "#F5C543" : "#C0C0C0",
-                  cursor: "pointer",
-                }}
-              >
-                ★
-              </button>
-            )
-          })}
+           {[1, 2, 3, 4, 5].map((n) => (
+            <span
+              key={n}
+              className="text-2xl"
+              style={{
+                color: "#F5C543", // always active yellow
+                cursor: "default",
+              }}
+            >
+              ★
+            </span>
+          ))}
         </div>
       </div>
 
@@ -68,13 +60,12 @@ export default function FeedbackForm({ role = "worker" }: FeedbackFormProps) {
       <label htmlFor="feedback" className="block text-md font-bold mb-2">
         {commentLabel}
       </label>
-      <textarea
-        id="feedback"
-        value={feedback}
-        onChange={(e) => setFeedback(e.target.value)}
-        placeholder="Write your feedback here..."
-        className="w-full h-28 border-2 border-[#0BA6DF] rounded-md p-3 text-sm resize-none focus:outline-none focus:border-[#2D81B5]"
-      />
+      <div
+        className="w-full min-h-20 border-2 border-[#0BA6DF] rounded-md p-3 text-sm bg-gray-50"
+      >
+        This worker did a great job. Very disciplined, very polite,
+        and completed the task ahead of schedule. Will definitely hire again.
+      </div>
 
       {/* Submit */}
       <div className="mt-5 flex justify-end">
@@ -82,7 +73,7 @@ export default function FeedbackForm({ role = "worker" }: FeedbackFormProps) {
           type="submit"
           className="bg-[#2D81B5] text-white font-semibold px-6 py-2 rounded-md hover:bg-[#236799] transition w-150"
         >
-          Submit
+          Close
         </button>
       </div>
     </form>
