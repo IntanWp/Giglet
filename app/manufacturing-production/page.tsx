@@ -26,14 +26,14 @@ export default function JobsPage() {
     date: "2025/12/22",
     description: "Attaching labels/stickers to products before distribution.",
     fee: "Rp 70.000",
-    imageQuery: "Product-Labeling",
+    imageQuery: "product-labeling",
   },
   {
     title: "Item Sorter",
     date: "2025/12/18",
     description: "Sort items according to category (size/color/type).",
     fee: "Rp 80.000",
-    imageQuery: "Item-Sorter",
+    imageQuery: "item-sorter",
   },
   {
     title: "Arranging Goods in the Warehouse",
