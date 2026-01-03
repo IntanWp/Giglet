@@ -110,7 +110,7 @@ export default function JobsPage() {
     date: "2025/10/23",
     description: "Insert hangers into production clothes.",
     fee: "Rp 75.000",
-    imageQuery: "clothes-hanger-installerr",
+    imageQuery: "clothes-hanger-installer",
   },
   {
     title: "Promo Labeler",
